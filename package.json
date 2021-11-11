@@ -1,0 +1,32 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KirillLodygin/project2-Leonardo-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KirillLodygin/project2-Leonardo-server/issues"
+  },
+  "homepage": "https://github.com/KirillLodygin/project2-Leonardo-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.1.1",
+    "graphql-iso-date": "^3.6.1",
+    "mongoose": "^5.4.17",
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "prettier": "^2.4.1"
+  }
+}
