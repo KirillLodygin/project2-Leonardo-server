@@ -38,7 +38,7 @@ const EventType = new GraphQLObjectType({
     id: { type: GraphQLID },
     title: { type: new GraphQLNonNull(GraphQLString) },
     description: { type: GraphQLString },
-    date: { type: new GraphQLNonNull(GraphQLDateTime) },
+    date: { type: new GraphQLNonNull(GraphQLString) },
     image: { type: GraphQLString },
     status: { type: new GraphQLNonNull(GraphQLString) },
     rate: { type: GraphQLInt },
@@ -98,23 +98,10 @@ const Query = new GraphQLObjectType({
     },
 
     events: {
-      type: PaginatedListType(EventType),
-      args: {
-        pagination: {
-          type: PaginationArgType,
-          defaultValue: { offset: 0, limit: 10 },
-        },
-        title: { type: GraphQLString },
-      },
-      resolve(_, { pagination, title }) {
-        const { offset, limit } = pagination;
-        return {
-          items: Events.find({ title: { $regex: title, $options: 'i' } })
-            .skip(offset)
-            .limit(limit)
-            .exec(),
-          count: Events.countDocuments(),
-        };
+      type: GraphQLList(EventType),
+      args: { date: { type: GraphQLString } },
+      resolve(_, { date }) {
+        return Events.find({ date: { $regex: date, $options: 'i' } });
       },
     },
 
@@ -128,6 +115,7 @@ const Query = new GraphQLObjectType({
 
     tickets: {
       type: new GraphQLList(TicketType),
+      args: { number: { type: GraphQLString } },
       resolve(parent, { number }) {
         return Tickets.find({ number: { $regex: number, $options: 'i' } });
       },
