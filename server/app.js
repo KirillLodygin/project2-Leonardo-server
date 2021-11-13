@@ -6,9 +6,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3005;
+const PORT = process.env.PORT || 3005;
 
-mongoose.connect(process.env.uri, {
+mongoose.connect(process.env.URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
