@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/KirillLodygin/project2-Leonardo-server#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
@@ -26,7 +27,6 @@
     "nodemon": "^1.18.10"
   },
   "devDependencies": {
-    "dotenv": "^10.0.0",
     "prettier": "^2.4.1"
   }
 }
