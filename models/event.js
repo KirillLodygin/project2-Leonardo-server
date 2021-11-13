@@ -10,6 +10,8 @@ const eventSchema = new Schema({
   rate: Number,
   encashTickets: Number,
   visited: Number,
+}, {
+  versionKey: false
 });
 
 module.exports = mongoose.model('Event', eventSchema);
